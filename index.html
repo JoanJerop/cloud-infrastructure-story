@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive visualization of cloud infrastructure from regions to containers">
+    <meta name="keywords" content="cloud, infrastructure, kubernetes, devops, visualization">
+    <meta name="author" content="Your Name">
+    <title>Cloud Infrastructure Story | From Cloud to Hello World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1>🔮 The Cloud Infrastructure Story</h1>
+            <p>A journey from the cloud to a simple "Hello World"</p>
+            <p class="subtitle">Understanding modern application deployment layers</p>
+        </header>
+
+        <nav class="controls">
+            <button class="btn" onclick="showAllLayers()" aria-label="Show all layers at once">
+                <span>📚</span> Show All Layers
+            </button>
+            <button class="btn" onclick="resetAnimation()" aria-label="Reset animation to beginning">
+                <span>🔄</span> Reset Animation
+            </button>
+            <button class="btn" onclick="autoPlay()" aria-label="Play animation automatically">
+                <span>▶️</span> Auto Play
+            </button>
+        </nav>
+
+        <main class="story-container">
+            <div class="layer" data-layer="1" tabindex="0">
+                <span class="layer-number">1</span>
+                <div class="layer-content">
+                    <div class="layer-title">☁️ Cloud Provider Region</div>
+                    <div class="layer-description">
+                        In the beginning, there is a Region in a Cloud Provider - a geographic area containing multiple data centers for redundancy and low latency.
+                    </div>
+                    <div class="layer-tech">Examples: us-east-1, eu-west-1, ap-southeast-1</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="2" tabindex="0">
+                <span class="layer-number">2</span>
+                <div class="layer-content">
+                    <div class="layer-title">🏢 Availability Zone</div>
+                    <div class="layer-description">
+                        Within that Region, there is an Availability Zone - an isolated location with independent power, cooling, and networking.
+                    </div>
+                    <div class="layer-tech">Purpose: High availability and fault tolerance</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="3" tabindex="0">
+                <span class="layer-number">3</span>
+                <div class="layer-content">
+                    <div class="layer-title">🏭 Data Center</div>
+                    <div class="layer-description">
+                        In that Availability Zone, there is a Data Center - a physical facility housing thousands of servers and networking equipment.
+                    </div>
+                    <div class="layer-tech">Infrastructure: Power, cooling, security, networking</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="4" tabindex="0">
+                <span class="layer-number">4</span>
+                <div class="layer-content">
+                    <div class="layer-title">🗄️ Server Rack</div>
+                    <div class="layer-description">
+                        In that Data Center, there is a Server Rack - a standardized frame housing multiple servers in an organized manner.
+                    </div>
+                    <div class="layer-tech">Standard: 19-inch rack, 42U height</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="5" tabindex="0">
+                <span class="layer-number">5</span>
+                <div class="layer-content">
+                    <div class="layer-title">🔗 Private Network</div>
+                    <div class="layer-description">
+                        In that Server Rack, there is a Private Network - secure networking infrastructure connecting all the physical components.
+                    </div>
+                    <div class="layer-tech">Protocols: VLANs, VPCs, private subnets</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="6" tabindex="0">
+                <span class="layer-number">6</span>
+                <div class="layer-content">
+                    <div class="layer-title">💻 Physical Host</div>
+                    <div class="layer-description">
+                        In that Private Network, there is a Physical Host - the actual server hardware with CPU, RAM, and storage.
+                    </div>
+                    <div class="layer-tech">Hardware: Multi-core CPUs, RAM, SSDs, network cards</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="7" tabindex="0">
+                <span class="layer-number">7</span>
+                <div class="layer-content">
+                    <div class="layer-title">🖥️ Virtual Machine</div>
+                    <div class="layer-description">
+                        In that Physical Host, there is a Virtual Machine - a software-based computer running on top of the physical hardware.
+                    </div>
+                    <div class="layer-tech">Hypervisors: VMware, KVM, Hyper-V</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="8" tabindex="0">
+                <span class="layer-number">8</span>
+                <div class="layer-content">
+                    <div class="layer-title">🏗️ Kubernetes Cluster</div>
+                    <div class="layer-description">
+                        Those Virtual Machines form a Kubernetes cluster - an orchestration system for automating deployment and management of containerized applications.
+                    </div>
+                    <div class="layer-tech">Components: Master nodes, worker nodes, etcd</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="9" tabindex="0">
+                <span class="layer-number">9</span>
+                <div class="layer-content">
+                    <div class="layer-title">📦 Kubernetes Node</div>
+                    <div class="layer-description">
+                        In that Kubernetes cluster, there is a Node - a worker machine (VM) that runs your application workloads.
+                    </div>
+                    <div class="layer-tech">Services: kubelet, kube-proxy, container runtime</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="10" tabindex="0">
+                <span class="layer-number">10</span>
+                <div class="layer-content">
+                    <div class="layer-title">🚀 Deployment</div>
+                    <div class="layer-description">
+                        In that Node, there is a Deployment - a Kubernetes object that manages the deployment and scaling of your application.
+                    </div>
+                    <div class="layer-tech">Features: Rolling updates, rollbacks, scaling</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="11" tabindex="0">
+                <span class="layer-number">11</span>
+                <div class="layer-content">
+                    <div class="layer-title">📋 ReplicaSet</div>
+                    <div class="layer-description">
+                        In that Deployment, there is a ReplicaSet - ensures a specified number of pod replicas are running at any given time.
+                    </div>
+                    <div class="layer-tech">Purpose: High availability and load distribution</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="12" tabindex="0">
+                <span class="layer-number">12</span>
+                <div class="layer-content">
+                    <div class="layer-title">🫛 Pod</div>
+                    <div class="layer-description">
+                        In that ReplicaSet, there is a Pod - the smallest deployable unit in Kubernetes, containing one or more containers.
+                    </div>
+                    <div class="layer-tech">Resources: Shared network, storage volumes</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="13" tabindex="0">
+                <span class="layer-number">13</span>
+                <div class="layer-content">
+                    <div class="layer-title">📦 Container</div>
+                    <div class="layer-description">
+                        In that Pod, there is a Container - a lightweight, portable, and self-sufficient package containing your application and its dependencies.
+                    </div>
+                    <div class="layer-tech">Runtime: Docker, containerd, CRI-O</div>
+                </div>
+            </div>
+
+            <div class="layer" data-layer="14" tabindex="0">
+                <span class="layer-number">14</span>
+                <div class="layer-content">
+                    <div class="layer-title">⚡ Process</div>
+                    <div class="layer-description">
+                        In that Container, there is a process executing your application code...
+                    </div>
+                    <div class="layer-tech">The actual running application instance</div>
+                </div>
+            </div>
+        </main>
+
+        <div class="final-message" id="finalMessage">
+            <div class="message-content">
+                <h2>🎉 The process says:</h2>
+                <div class="hello-world">"Hello World! 😊"</div>
+                <p>From global cloud infrastructure to a simple greeting - this is the modern application stack!</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Created to demonstrate understanding of cloud infrastructure layers</p>
+            <p>Technologies: HTML5, CSS3, JavaScript | <a href="https://github.com/yourusername/cloud-infrastructure-story">View Source</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
